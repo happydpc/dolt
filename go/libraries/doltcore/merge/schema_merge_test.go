@@ -230,7 +230,6 @@ var columnAddDropTests = []schemaMergeTest{
 				left:         singleRow(1, 2),
 				right:        singleRow(1, 2, nil),
 				dataConflict: true,
-				skip:         true,
 			},
 			{
 				// Skipped because the differ currently doesn't try to merge the dropped column.
@@ -239,7 +238,6 @@ var columnAddDropTests = []schemaMergeTest{
 				left:         singleRow(1, 2),
 				right:        singleRow(1, 3, nil),
 				dataConflict: true,
-				skip:         true,
 			},
 			{
 				// Skipped because the differ doesn't see left as modified because
@@ -249,7 +247,6 @@ var columnAddDropTests = []schemaMergeTest{
 				left:         singleRow(1, 2),
 				right:        singleRow(1, 2, 3),
 				dataConflict: true,
-				skip:         true,
 			},
 			{
 				// Skipped because the differ currently doesn't try to merge the dropped column.
@@ -258,7 +255,6 @@ var columnAddDropTests = []schemaMergeTest{
 				left:         singleRow(1, 3),
 				right:        singleRow(1, 2, 3),
 				dataConflict: true,
-				skip:         true,
 			},
 			{
 				// Skipped because the differ currently doesn't try to merge the dropped column.
@@ -267,7 +263,6 @@ var columnAddDropTests = []schemaMergeTest{
 				left:         singleRow(1, 2),
 				right:        singleRow(1, 2, 4),
 				dataConflict: true,
-				skip:         true,
 			},
 		},
 	},
@@ -292,7 +287,6 @@ var columnAddDropTests = []schemaMergeTest{
 				left:         singleRow(1, 3),
 				right:        singleRow(1, nil, 3),
 				dataConflict: true,
-				skip:         true,
 			},
 			{
 				// Skipped because the differ currently doesn't try to merge the dropped column.
@@ -301,7 +295,6 @@ var columnAddDropTests = []schemaMergeTest{
 				left:         singleRow(1, 3),
 				right:        singleRow(1, nil, 4),
 				dataConflict: true,
-				skip:         true,
 			},
 			{
 				// Skipped because the differ currently doesn't try to merge the dropped column.
@@ -310,7 +303,6 @@ var columnAddDropTests = []schemaMergeTest{
 				left:         singleRow(1, 3),
 				right:        singleRow(1, 2, 3),
 				dataConflict: true,
-				skip:         true,
 			},
 			{
 				// Skipped because the differ currently doesn't try to merge the dropped column.
@@ -319,7 +311,6 @@ var columnAddDropTests = []schemaMergeTest{
 				left:         singleRow(1, 4),
 				right:        singleRow(1, 2, 3),
 				dataConflict: true,
-				skip:         true,
 			},
 			{
 				// Skipped because the differ currently doesn't try to merge the dropped column.
@@ -328,7 +319,6 @@ var columnAddDropTests = []schemaMergeTest{
 				left:         singleRow(1, 3),
 				right:        singleRow(1, 4, 3),
 				dataConflict: true,
-				skip:         true,
 			},
 		},
 	},
@@ -373,7 +363,6 @@ var columnAddDropTests = []schemaMergeTest{
 				left:         singleRow(1, 2, nil),
 				right:        singleRow(1, 2, 3),
 				dataConflict: true,
-				skip:         true,
 			},
 			{
 				name:         "convergent adds with differing nullness, plus convergent data change",
@@ -406,7 +395,6 @@ var columnAddDropTests = []schemaMergeTest{
 				left:         singleRow(1, nil, 2),
 				right:        singleRow(1, 3, 2),
 				dataConflict: true,
-				//skip:         true,
 			},
 			{
 				name:         "convergent adds with differing nullness, plus convergent data change",
