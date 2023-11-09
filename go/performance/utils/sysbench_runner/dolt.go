@@ -15,6 +15,7 @@
 package sysbench_runner
 
 import (
+	"bytes"
 	"context"
 	"fmt"
 	"os"
@@ -280,10 +281,15 @@ func benchmark(
 
 	r.Stamp(stampFunc)
 
-	out, err = cleanup.CombinedOutput()
+	var o bytes.Buffer
+	var e bytes.Buffer
+	cleanup.Stdout = &o
+	cleanup.Stderr = &e
+	err = cleanup.Run()
 	if err != nil {
 		fmt.Println("cleanup error:")
-		fmt.Print(string(out))
+		fmt.Println(o.String())
+		fmt.Println(e.String())
 		return nil, err
 	}
 
