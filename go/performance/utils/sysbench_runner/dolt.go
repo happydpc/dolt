@@ -255,14 +255,16 @@ func benchmark(
 
 	fmt.Println("Running test ", test.Name)
 
-	out, err := prepare.Output()
+	out, err := prepare.CombinedOutput()
 	if err != nil {
+		fmt.Println("prepare error:")
 		fmt.Println(string(out))
 		return nil, err
 	}
 
-	out, err = run.Output()
+	out, err = run.CombinedOutput()
 	if err != nil {
+		fmt.Println("run error:")
 		fmt.Print(string(out))
 		return nil, err
 	}
@@ -278,7 +280,14 @@ func benchmark(
 
 	r.Stamp(stampFunc)
 
-	return r, cleanup.Run()
+	out, err = cleanup.CombinedOutput()
+	if err != nil {
+		fmt.Println("cleanup error:")
+		fmt.Print(string(out))
+		return nil, err
+	}
+
+	return r, nil
 }
 
 // fromChannelResults collects all Results from the given channel and returns them
